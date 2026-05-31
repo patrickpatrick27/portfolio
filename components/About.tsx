@@ -28,7 +28,8 @@ export default function About() {
     >
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">About</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">About</h2>
+          <div className="w-10 h-1 bg-blue-600 rounded-full mb-12" />
         </AnimateIn>
         <AnimateIn delay={80} className="flex flex-col sm:flex-row gap-10">
           <div className="shrink-0">

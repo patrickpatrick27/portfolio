@@ -70,7 +70,8 @@ export default function Contact() {
     >
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Get in Touch</h2>
+          <div className="w-10 h-1 bg-blue-600 rounded-full mb-4" />
           <p className="text-gray-500 mb-12">
             Available for freelance projects and full-time remote roles.
           </p>

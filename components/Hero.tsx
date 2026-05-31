@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="py-24 px-4 sm:px-6 text-center bg-white">
+    <section className="py-24 px-4 sm:px-6 text-center bg-gradient-to-b from-blue-50 via-blue-50/30 to-white">
       <div className="max-w-3xl mx-auto">
         <h1
           className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-up"
@@ -22,7 +22,7 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+            className="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200"
           >
             View Projects
           </a>
@@ -65,7 +65,7 @@ export default function Hero() {
           ].map((chip) => (
             <span
               key={chip}
-              className="px-3 py-1 bg-gray-100 text-gray-500 text-sm rounded-full"
+              className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full border border-blue-100"
             >
               {chip}
             </span>

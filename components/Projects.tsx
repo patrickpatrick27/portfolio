@@ -135,7 +135,8 @@ export default function Projects() {
     <section id="projects" className="py-20 px-4 sm:px-6 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Projects</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Projects</h2>
+          <div className="w-10 h-1 bg-blue-600 rounded-full mb-4" />
           <p className="text-gray-500 mb-12">
             Production systems in active daily use.
           </p>
@@ -145,7 +146,10 @@ export default function Projects() {
             const badge = statusConfig[project.status];
             return (
               <AnimateIn key={project.name} delay={i * 60} className="flex flex-col">
-                <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl overflow-hidden flex flex-col flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200">
+                <div
+                  className="bg-[#F9FAFB] rounded-xl overflow-hidden flex flex-col flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200"
+                  style={{ border: "1px solid #E5E7EB", borderTop: "2px solid #2563EB" }}
+                >
                   <div className="bg-white p-4 border-b border-gray-100">
                     {project.mockup === "browser" ? (
                       <BrowserMockup src={project.image} alt={project.name} />
