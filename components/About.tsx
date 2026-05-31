@@ -51,7 +51,7 @@ export default function About() {
             </p>
             <p className="text-gray-600 leading-relaxed">
               I specialize in full-stack development, automation engineering,
-              and internal tooling — the kind of work that actually runs
+              and internal tooling: the kind of work that actually runs
               businesses. My clients are based in the UK, the US, and the
               Philippines.
             </p>

@@ -23,7 +23,7 @@ export default function Hero() {
           style={{ animationDelay: "240ms" }}
         >
           Full-stack developer and automation engineer based in the Philippines.
-          I ship real products — dashboards, mobile apps, automation pipelines —
+          I ship real products: dashboards, mobile apps, automation pipelines,
           used daily by companies in the UK, US, and locally.
         </p>
         <div

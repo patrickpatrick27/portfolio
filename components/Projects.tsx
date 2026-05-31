@@ -102,12 +102,12 @@ const projects: Project[] = [
 const statusConfig: Record<Status, { label: string; className: string }> = {
   live: { label: "Live", className: "bg-green-100 text-green-700" },
   confidential: {
-    label: "Confidential — demo on call",
+    label: "Confidential - demo on call",
     className: "bg-gray-100 text-gray-600",
   },
   github: { label: "GitHub", className: "bg-gray-900 text-white" },
   internal: {
-    label: "In production — internal use",
+    label: "In production - internal use",
     className: "bg-gray-100 text-gray-600",
   },
 };

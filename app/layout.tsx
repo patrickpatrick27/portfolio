@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dave Patrick Bulaso — Full-Stack Developer & Automation Engineer",
+  title: "Dave Patrick Bulaso | Full-Stack Developer & Automation Engineer",
   description:
-    "Full-stack developer and automation engineer based in the Philippines. I ship real products — dashboards, mobile apps, automation pipelines — used daily by companies in the UK, US, and locally.",
+    "Full-stack developer and automation engineer based in the Philippines. I ship real products: dashboards, mobile apps, automation pipelines, used daily by companies in the UK, US, and locally.",
 };
 
 export default function RootLayout({
