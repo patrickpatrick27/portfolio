@@ -44,16 +44,6 @@ const projects: Project[] = [
     mockup: "browser",
   },
   {
-    name: "Pinpoint",
-    description:
-      "Real-time location sharing web app. Create a session, share a link, see everyone on a live map. No account needed.",
-    stack: ["Next.js", "Supabase Realtime", "Leaflet", "OpenStreetMap"],
-    status: "live",
-    image: "/projects/pinpoint2.jpg",
-    mockup: "browser",
-    link: "https://pinpoint-tau.vercel.app",
-  },
-  {
     name: "NAP Finder",
     description:
       "Flutter geolocation app used daily by field technicians to locate 3,000+ network access points across Cavite, replacing manual spreadsheet lookups.",
@@ -70,6 +60,16 @@ const projects: Project[] = [
     status: "internal",
     image: "/projects/image11.jpg",
     mockup: "phone",
+  },
+  {
+    name: "Pinpoint",
+    description:
+      "Real-time location sharing web app. Create a session, share a link, see everyone on a live map. No account needed.",
+    stack: ["Next.js", "Supabase Realtime", "Leaflet", "OpenStreetMap"],
+    status: "live",
+    image: "/projects/pinpoint2.jpg",
+    mockup: "browser",
+    link: "https://pinpoint-tau.vercel.app",
   },
   {
     name: "OLJ Job Scout Bot",
