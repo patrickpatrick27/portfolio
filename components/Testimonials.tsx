@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "Messages get answered fast, tasks get picked up without chasing, and the quality of the work coming back reflects genuine care for getting it right. That combination of capability and adaptability is rare — it is what makes him genuinely useful on product development work rather than just task execution.",
+      "Messages get answered fast, tasks get picked up without chasing, and the quality of the work coming back reflects genuine care for getting it right. That combination of capability and adaptability is rare - it is what makes him genuinely useful on product development work rather than just task execution.",
     name: "Aravinth Ratnakumar",
     role: "CFO & Co-Founder",
     company: "Wiser",
