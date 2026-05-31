@@ -34,8 +34,13 @@ function LinkedInIcon() {
   );
 }
 
+type FormState = "idle" | "submitting" | "success" | "error";
+
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
@@ -43,6 +48,26 @@ export default function Contact() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormState("submitting");
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setFormState("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
+      setFormState("error");
+    }
   }
 
   return (
@@ -55,72 +80,127 @@ export default function Contact() {
             Available for freelance projects and full-time remote roles.
           </p>
         </AnimateIn>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {/* Email — copy on click */}
+
+        {/* Contact cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
           <AnimateIn delay={0}>
             <a
               href="mailto:davepatrickbulaso@gmail.com"
               onClick={handleEmailClick}
               className={`flex items-center gap-3 p-4 border rounded-xl hover:-translate-y-0.5 transition-all duration-200 group ${
-                copied
-                  ? "bg-green-50 border-green-200"
-                  : "bg-[#F9FAFB] border-[#E5E7EB] hover:border-blue-200 hover:bg-blue-50"
+                copied ? "bg-green-50 border-green-200" : "bg-[#F9FAFB] border-[#E5E7EB] hover:border-blue-200 hover:bg-blue-50"
               }`}
             >
               <span className={`shrink-0 transition-colors ${copied ? "text-green-600" : "text-gray-500 group-hover:text-blue-600"}`}>
                 {copied ? <CheckIcon /> : <EmailIcon />}
               </span>
               <div className="min-w-0">
-                <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">
-                  {copied ? "Copied!" : "Email"}
-                </div>
+                <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">{copied ? "Copied!" : "Email"}</div>
                 <div className={`text-sm font-medium truncate transition-colors ${copied ? "text-green-700" : "text-gray-700 group-hover:text-blue-700"}`}>
                   davepatrickbulaso@gmail.com
                 </div>
               </div>
             </a>
           </AnimateIn>
-
-          {/* GitHub */}
           <AnimateIn delay={80}>
-            <a
-              href="https://github.com/patrickpatrick27"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group"
-            >
-              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0">
-                <GitHubIcon />
-              </span>
+            <a href="https://github.com/patrickpatrick27" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group">
+              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0"><GitHubIcon /></span>
               <div className="min-w-0">
                 <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">GitHub</div>
-                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">
-                  github.com/patrickpatrick27
-                </div>
+                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">github.com/patrickpatrick27</div>
               </div>
             </a>
           </AnimateIn>
-
-          {/* LinkedIn */}
           <AnimateIn delay={160}>
-            <a
-              href="https://linkedin.com/in/dave-patrick-bulaso-169b7b307"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group"
-            >
-              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0">
-                <LinkedInIcon />
-              </span>
+            <a href="https://linkedin.com/in/dave-patrick-bulaso-169b7b307" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group">
+              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0"><LinkedInIcon /></span>
               <div className="min-w-0">
                 <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">LinkedIn</div>
-                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">
-                  linkedin.com/in/dave-patrick-bulaso
-                </div>
+                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">linkedin.com/in/dave-patrick-bulaso</div>
               </div>
             </a>
           </AnimateIn>
         </div>
+
+        {/* Contact form */}
+        <AnimateIn delay={200}>
+          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-6 sm:p-8" style={{ borderTop: "2px solid #2563EB" }}>
+            <h3 className="font-semibold text-gray-900 mb-6">Send a message</h3>
+            {formState === "success" ? (
+              <div className="flex flex-col items-center justify-center py-10 gap-3 text-center">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                  <CheckIcon />
+                </div>
+                <p className="font-semibold text-gray-900">Message sent!</p>
+                <p className="text-sm text-gray-500">I&apos;ll get back to you as soon as possible.</p>
+                <button onClick={() => setFormState("idle")} className="mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium">
+                  Send another
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                      placeholder="Your name"
+                      className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                      placeholder="your@email.com"
+                      className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Message</label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={form.message}
+                    onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                    placeholder="Tell me about your project..."
+                    className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                  />
+                </div>
+                {formState === "error" && (
+                  <p className="text-sm text-red-600">{errorMsg}</p>
+                )}
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-xs text-gray-400">I typically respond within 24 hours.</p>
+                  <button
+                    type="submit"
+                    disabled={formState === "submitting"}
+                    className="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2 shrink-0"
+                  >
+                    {formState === "submitting" ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : "Send Message"}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </AnimateIn>
       </div>
     </section>
   );
