@@ -190,7 +190,7 @@ export default function Contact() {
                   <p className="text-sm text-red-600">{errorMsg}</p>
                 )}
                 <div className="flex items-center justify-between gap-4">
-                  <p className="text-xs text-gray-400">I typically respond within 24 hours.</p>
+                  <p className="text-xs text-gray-400">I typically respond within a few minutes.</p>
                   <button
                     type="submit"
                     disabled={formState === "submitting"}

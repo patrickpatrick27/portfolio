@@ -46,7 +46,7 @@ export default function About() {
           </div>
           <div className="flex-1 space-y-4">
             <p className="text-gray-600 leading-relaxed">
-              I&apos;m a 22-year-old Computer Engineering student at Cavite
+              I&apos;m a 21-year-old Computer Engineering student at Cavite
               State University (graduating February 2027), currently building
               production software for three international clients simultaneously
               while still in school.
