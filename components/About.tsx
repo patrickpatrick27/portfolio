@@ -2,22 +2,30 @@ import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 
 const stack = [
-  { name: "Python",                  bg: "bg-blue-50",    text: "text-blue-700",   border: "border-blue-100"   },
-  { name: "Dart / Flutter",          bg: "bg-sky-50",     text: "text-sky-600",    border: "border-sky-100"    },
-  { name: "TypeScript",              bg: "bg-blue-50",    text: "text-blue-800",   border: "border-blue-100"   },
-  { name: "React",                   bg: "bg-cyan-50",    text: "text-cyan-700",   border: "border-cyan-100"   },
+  // Black
   { name: "Next.js",                 bg: "bg-gray-900",   text: "text-white",      border: "border-gray-800"   },
+  { name: "Vercel",                  bg: "bg-gray-900",   text: "text-white",      border: "border-gray-800"   },
+  // Blue
+  { name: "Python",                  bg: "bg-blue-50",    text: "text-blue-700",   border: "border-blue-100"   },
+  { name: "TypeScript",              bg: "bg-blue-50",    text: "text-blue-800",   border: "border-blue-100"   },
+  { name: "Docker",                  bg: "bg-blue-50",    text: "text-blue-600",   border: "border-blue-100"   },
+  // Sky / Cyan
+  { name: "Dart / Flutter",          bg: "bg-sky-50",     text: "text-sky-600",    border: "border-sky-100"    },
+  { name: "React",                   bg: "bg-cyan-50",    text: "text-cyan-700",   border: "border-cyan-100"   },
+  // Green / Emerald
   { name: "Node.js",                 bg: "bg-green-50",   text: "text-green-700",  border: "border-green-100"  },
   { name: "Supabase",                bg: "bg-emerald-50", text: "text-emerald-700",border: "border-emerald-100"},
-  { name: "PostgreSQL",              bg: "bg-indigo-50",  text: "text-indigo-700", border: "border-indigo-100" },
-  { name: "Firebase",                bg: "bg-orange-50",  text: "text-orange-600", border: "border-orange-100" },
-  { name: "Google Workspace APIs",   bg: "bg-red-50",     text: "text-red-600",    border: "border-red-100"    },
-  { name: "Docker",                  bg: "bg-blue-50",    text: "text-blue-600",   border: "border-blue-100"   },
-  { name: "Linux",                   bg: "bg-gray-100",   text: "text-gray-700",   border: "border-gray-200"   },
-  { name: "Tailscale",               bg: "bg-indigo-50",  text: "text-indigo-600", border: "border-indigo-100" },
   { name: "Playwright",              bg: "bg-green-50",   text: "text-green-700",  border: "border-green-100"  },
-  { name: "Vercel",                  bg: "bg-gray-900",   text: "text-white",      border: "border-gray-800"   },
+  // Indigo
+  { name: "PostgreSQL",              bg: "bg-indigo-50",  text: "text-indigo-700", border: "border-indigo-100" },
+  { name: "Tailscale",               bg: "bg-indigo-50",  text: "text-indigo-600", border: "border-indigo-100" },
+  // Orange
+  { name: "Firebase",                bg: "bg-orange-50",  text: "text-orange-600", border: "border-orange-100" },
   { name: "Git",                     bg: "bg-orange-50",  text: "text-orange-600", border: "border-orange-100" },
+  // Red
+  { name: "Google Workspace APIs",   bg: "bg-red-50",     text: "text-red-600",    border: "border-red-100"    },
+  // Gray
+  { name: "Linux",                   bg: "bg-gray-100",   text: "text-gray-700",   border: "border-gray-200"   },
 ];
 
 export default function About() {
