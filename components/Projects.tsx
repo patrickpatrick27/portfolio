@@ -25,6 +25,15 @@ const projects: Project[] = [
     mockup: "browser",
   },
   {
+    name: "Email Bison Monitor",
+    description:
+      "Internal ops dashboard for a US insurance agency recruitment firm, monitoring 1,900+ email accounts and 111,000+ campaign sends in real time.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Email Bison API"],
+    status: "confidential",
+    image: "/projects/image5.png",
+    mockup: "browser",
+  },
+  {
     name: "10Q Holdings Dashboard",
     description:
       "Internal lead management CRUD tool replacing spreadsheet workflows for multi-company LinkedIn outreach across 4,578+ leads.",
@@ -33,15 +42,6 @@ const projects: Project[] = [
     image: "/projects/image3.png",
     mockup: "browser",
     link: "https://10q-dashboard.vercel.app/login",
-  },
-  {
-    name: "Email Bison Monitor",
-    description:
-      "Internal ops dashboard for a US insurance agency recruitment firm, monitoring 1,900+ email accounts and 111,000+ campaign sends in real time.",
-    stack: ["Next.js", "TypeScript", "Supabase", "Email Bison API"],
-    status: "confidential",
-    image: "/projects/image5.png",
-    mockup: "browser",
   },
   {
     name: "NAP Finder",
