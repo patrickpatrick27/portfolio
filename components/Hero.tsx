@@ -43,7 +43,7 @@ export default function Hero() {
             Get in Touch
           </a>
           <a
-            href="https://drive.google.com/file/d/1giBIEb7eScnH7ur5qj5bDGz_g5wwVlE2/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Cb8UfQCPRz8o6i46XHzZI9niGyUTU3tA/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 border border-gray-300 text-gray-700 rounded-lg font-medium hover:border-gray-400 hover:text-gray-900 transition-colors inline-flex items-center gap-1.5"
