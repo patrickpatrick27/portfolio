@@ -48,7 +48,7 @@ export default function About() {
             <p className="text-gray-600 leading-relaxed">
               I&apos;m a Computer Engineering student at Cavite State University
               (graduating February 2027) who&apos;s been building production
-              software for international clients since 2025.
+              software for international clients since February 2026.
             </p>
             <p className="text-gray-600 leading-relaxed">
               I specialize in full-stack development, automation engineering,

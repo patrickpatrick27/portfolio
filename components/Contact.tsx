@@ -38,7 +38,7 @@ type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", website: "" });
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -63,7 +63,7 @@ export default function Contact() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Something went wrong.");
       setFormState("success");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", website: "" });
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
       setFormState("error");
@@ -141,6 +141,16 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                {/* Honeypot — hidden from humans, bots fill it in */}
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={e => setForm(f => ({ ...f, website: e.target.value }))}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Name</label>
