@@ -1,8 +1,16 @@
 export default function Hero() {
   return (
-    <section className="py-24 px-4 sm:px-6 text-center bg-gradient-to-b from-blue-50 via-blue-50/30 to-white">
-      <div className="max-w-3xl mx-auto">
+    <section className="relative py-24 px-4 sm:px-6 text-center bg-gradient-to-b from-blue-50 via-blue-50/30 to-white overflow-hidden">
+      {/* Dot grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
+      <div className="relative max-w-3xl mx-auto">
         {/* Available badge */}
         <div
           className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-sm text-green-700 font-medium mb-7 animate-fade-in-up"
@@ -27,7 +35,7 @@ export default function Hero() {
           used daily by companies in the UK, US, and locally.
         </p>
         <div
-          className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up"
+          className="flex flex-wrap justify-center gap-3 mb-8 animate-fade-in-up"
           style={{ animationDelay: "360ms" }}
         >
           <a
@@ -55,7 +63,7 @@ export default function Hero() {
           </a>
         </div>
         <div
-          className="flex flex-wrap justify-center gap-3 animate-fade-in-up"
+          className="flex flex-wrap justify-center gap-3 mb-5 animate-fade-in-up"
           style={{ animationDelay: "480ms" }}
         >
           {[
@@ -71,6 +79,12 @@ export default function Hero() {
             </span>
           ))}
         </div>
+        <p
+          className="text-sm text-gray-400 animate-fade-in-up"
+          style={{ animationDelay: "560ms" }}
+        >
+          Currently: shipping production systems for clients in the UK and US
+        </p>
       </div>
     </section>
   );

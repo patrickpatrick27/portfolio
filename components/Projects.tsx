@@ -144,13 +144,22 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, i) => {
             const badge = statusConfig[project.status];
+            const featured = i === 0;
+
             return (
-              <AnimateIn key={project.name} delay={i * 60} className="flex flex-col">
+              <AnimateIn
+                key={project.name}
+                delay={i * 60}
+                className={`flex flex-col ${featured ? "md:col-span-2" : ""}`}
+              >
                 <div
-                  className="bg-[#F9FAFB] rounded-xl overflow-hidden flex flex-col flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200"
+                  className={`bg-[#F9FAFB] rounded-xl overflow-hidden flex flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200 ${
+                    featured ? "flex-col md:flex-row" : "flex-col"
+                  }`}
                   style={{ border: "1px solid #E5E7EB", borderTop: "2px solid #2563EB" }}
                 >
-                  <div className="bg-white p-4 border-b border-gray-100">
+                  {/* Screenshot */}
+                  <div className={`bg-white p-4 border-b border-gray-100 ${featured ? "md:w-3/5 md:border-b-0 md:border-r" : ""}`}>
                     {project.mockup === "browser" ? (
                       <BrowserMockup src={project.image} alt={project.name} />
                     ) : (
@@ -159,26 +168,28 @@ export default function Projects() {
                       </div>
                     )}
                   </div>
-                  <div className="p-5 flex flex-col gap-3 flex-1">
+
+                  {/* Info */}
+                  <div className={`flex flex-col gap-3 flex-1 ${featured ? "p-6 md:p-8 justify-center" : "p-5"}`}>
+                    {featured && (
+                      <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
+                        Featured Project
+                      </span>
+                    )}
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="font-semibold text-gray-900 leading-snug">
+                      <h3 className={`font-semibold text-gray-900 leading-snug ${featured ? "text-xl" : ""}`}>
                         {project.name}
                       </h3>
-                      <span
-                        className={`shrink-0 px-2 py-0.5 text-xs rounded-full font-medium ${badge.className}`}
-                      >
+                      <span className={`shrink-0 px-2 py-0.5 text-xs rounded-full font-medium ${badge.className}`}>
                         {badge.label}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className={`text-gray-600 leading-relaxed ${featured ? "text-base" : "text-sm"}`}>
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded"
-                        >
+                        <span key={tech} className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded">
                           {tech}
                         </span>
                       ))}
@@ -191,9 +202,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
                         >
-                          {project.status === "github"
-                            ? "View on GitHub"
-                            : "Open App"}
+                          {project.status === "github" ? "View on GitHub" : "Open App"}
                           <ExternalLinkIcon />
                         </a>
                       </div>
