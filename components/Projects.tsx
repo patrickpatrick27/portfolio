@@ -18,6 +18,16 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "10Q Holdings Dashboard",
+    description:
+      "Internal lead management platform replacing spreadsheet workflows for multi-company LinkedIn outreach. Manages 4,578+ leads across pipeline stages with real-time tracking.",
+    stack: ["Next.js", "TypeScript", "Supabase", "Google OAuth"],
+    status: "live",
+    image: "/projects/image3.png",
+    mockup: "browser",
+    link: "https://10q-dashboard.vercel.app/login",
+  },
+  {
     name: "Wiser Finance Dashboard",
     description:
       "AR management portal tracking payments, forecasts, and aging reports for a UK employer branding firm with £1M+ monthly billing.",
@@ -34,16 +44,6 @@ const projects: Project[] = [
     status: "confidential",
     image: "/projects/image5.png",
     mockup: "browser",
-  },
-  {
-    name: "10Q Holdings Dashboard",
-    description:
-      "Internal lead management CRUD tool replacing spreadsheet workflows for multi-company LinkedIn outreach across 4,578+ leads.",
-    stack: ["Next.js", "TypeScript", "Supabase", "Google OAuth"],
-    status: "live",
-    image: "/projects/image3.png",
-    mockup: "browser",
-    link: "https://10q-dashboard.vercel.app/login",
   },
   {
     name: "NAP Finder",
@@ -167,7 +167,7 @@ export default function Projects() {
             return (
               <AnimateIn
                 key={project.name}
-                delay={i * 60}
+                delay={showAll && i >= INITIAL_VISIBLE ? (i - INITIAL_VISIBLE) * 80 : i * 60}
                 className={`flex flex-col ${featured ? "md:col-span-2" : ""}`}
               >
                 <div

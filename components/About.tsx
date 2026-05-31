@@ -46,19 +46,21 @@ export default function About() {
           </div>
           <div className="flex-1 space-y-4">
             <p className="text-gray-600 leading-relaxed">
-              I&apos;m a Computer Engineering student at Cavite State University
-              (graduating February 2027) who&apos;s been building production
-              software for international clients since February 2026.
+              I&apos;m a 22-year-old Computer Engineering student at Cavite
+              State University (graduating February 2027), currently building
+              production software for three international clients simultaneously
+              while still in school.
             </p>
             <p className="text-gray-600 leading-relaxed">
               I specialize in full-stack development, automation engineering,
-              and internal tooling: the kind of work that actually runs
-              businesses. My clients are based in the UK, the US, and the
-              Philippines.
+              and internal tooling: the kind of systems that actually run
+              businesses. I was appointed technical team lead at my primary UK
+              client within my first month. My clients are based in the UK, the
+              US, and the Philippines.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              I use Google Gemini CLI and Claude Code daily as part of my
-              workflow. I build fast and ship clean.
+              I use Claude Code and Gemini CLI daily as part of my workflow. I
+              build fast and ship clean.
             </p>
             <div className="pt-4">
               <h3 className="font-semibold text-gray-900 mb-4">
