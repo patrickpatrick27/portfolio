@@ -67,7 +67,7 @@ export default function Hero() {
           style={{ animationDelay: "480ms" }}
         >
           {[
-            "8 systems in production",
+            "9 total projects",
             "3 international clients",
             "UK · US · Philippines",
           ].map((chip) => (

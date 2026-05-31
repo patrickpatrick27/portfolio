@@ -23,7 +23,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 px-4 sm:px-6 bg-[#F9FAFB] border-t border-gray-200">
+    <section id="testimonials" className="py-20 px-4 sm:px-6 bg-[#F9FAFB] border-t border-gray-200">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
           <h2 className="text-3xl font-bold text-gray-900 mb-3">What Clients Say</h2>

@@ -2,22 +2,22 @@ import Image from "next/image";
 import AnimateIn from "./AnimateIn";
 
 const stack = [
-  "Python",
-  "Dart / Flutter",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Supabase",
-  "PostgreSQL",
-  "Firebase",
-  "Google Workspace APIs",
-  "Docker",
-  "Linux",
-  "Tailscale",
-  "Playwright",
-  "Vercel",
-  "Git",
+  { name: "Python",                  bg: "bg-blue-50",    text: "text-blue-700",   border: "border-blue-100"   },
+  { name: "Dart / Flutter",          bg: "bg-sky-50",     text: "text-sky-600",    border: "border-sky-100"    },
+  { name: "TypeScript",              bg: "bg-blue-50",    text: "text-blue-800",   border: "border-blue-100"   },
+  { name: "React",                   bg: "bg-cyan-50",    text: "text-cyan-700",   border: "border-cyan-100"   },
+  { name: "Next.js",                 bg: "bg-gray-900",   text: "text-white",      border: "border-gray-800"   },
+  { name: "Node.js",                 bg: "bg-green-50",   text: "text-green-700",  border: "border-green-100"  },
+  { name: "Supabase",                bg: "bg-emerald-50", text: "text-emerald-700",border: "border-emerald-100"},
+  { name: "PostgreSQL",              bg: "bg-indigo-50",  text: "text-indigo-700", border: "border-indigo-100" },
+  { name: "Firebase",                bg: "bg-orange-50",  text: "text-orange-600", border: "border-orange-100" },
+  { name: "Google Workspace APIs",   bg: "bg-red-50",     text: "text-red-600",    border: "border-red-100"    },
+  { name: "Docker",                  bg: "bg-blue-50",    text: "text-blue-600",   border: "border-blue-100"   },
+  { name: "Linux",                   bg: "bg-gray-100",   text: "text-gray-700",   border: "border-gray-200"   },
+  { name: "Tailscale",               bg: "bg-indigo-50",  text: "text-indigo-600", border: "border-indigo-100" },
+  { name: "Playwright",              bg: "bg-green-50",   text: "text-green-700",  border: "border-green-100"  },
+  { name: "Vercel",                  bg: "bg-gray-900",   text: "text-white",      border: "border-gray-800"   },
+  { name: "Git",                     bg: "bg-orange-50",  text: "text-orange-600", border: "border-orange-100" },
 ];
 
 export default function About() {
@@ -33,13 +33,14 @@ export default function About() {
         </AnimateIn>
         <AnimateIn delay={80} className="flex flex-col sm:flex-row gap-10">
           <div className="shrink-0">
-            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-gray-200">
+            <div className="w-32 h-32 rounded-full overflow-hidden ring-2 ring-gray-200">
               <Image
                 src="/avatar.jpg"
                 alt="Dave Patrick Bulaso"
-                width={96}
-                height={96}
-                className="object-cover w-full h-full" style={{ objectPosition: "center 45%" }}
+                width={128}
+                height={128}
+                className="object-cover w-full h-full"
+                style={{ objectPosition: "center 45%" }}
               />
             </div>
           </div>
@@ -66,10 +67,10 @@ export default function About() {
               <div className="flex flex-wrap gap-2">
                 {stack.map((tech) => (
                   <span
-                    key={tech}
-                    className="px-3 py-1 bg-gray-200 text-gray-600 text-sm rounded-full"
+                    key={tech.name}
+                    className={`px-3 py-1 text-sm rounded-full border font-medium ${tech.bg} ${tech.text} ${tech.border}`}
                   >
-                    {tech}
+                    {tech.name}
                   </span>
                 ))}
               </div>
