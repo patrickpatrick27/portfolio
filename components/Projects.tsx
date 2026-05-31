@@ -1,3 +1,4 @@
+import AnimateIn from "./AnimateIn";
 import BrowserMockup from "./BrowserMockup";
 import PhoneMockup from "./PhoneMockup";
 
@@ -133,74 +134,69 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Projects</h2>
-        <p className="text-gray-500 mb-12">
-          Production systems in active daily use.
-        </p>
+        <AnimateIn>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Projects</h2>
+          <p className="text-gray-500 mb-12">
+            Production systems in active daily use.
+          </p>
+        </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => {
+          {projects.map((project, i) => {
             const badge = statusConfig[project.status];
             return (
-              <div
-                key={project.name}
-                className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl overflow-hidden flex flex-col"
-              >
-                <div className="bg-white p-4 border-b border-gray-100">
-                  {project.mockup === "browser" ? (
-                    <BrowserMockup
-                      src={project.image}
-                      alt={project.name}
-                    />
-                  ) : (
-                    <div className="py-4 flex justify-center">
-                      <PhoneMockup
-                        src={project.image}
-                        alt={project.name}
-                      />
-                    </div>
-                  )}
-                </div>
-                <div className="p-5 flex flex-col gap-3 flex-1">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="font-semibold text-gray-900 leading-snug">
-                      {project.name}
-                    </h3>
-                    <span
-                      className={`shrink-0 px-2 py-0.5 text-xs rounded-full font-medium ${badge.className}`}
-                    >
-                      {badge.label}
-                    </span>
+              <AnimateIn key={project.name} delay={i * 60} className="flex flex-col">
+                <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl overflow-hidden flex flex-col flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200">
+                  <div className="bg-white p-4 border-b border-gray-100">
+                    {project.mockup === "browser" ? (
+                      <BrowserMockup src={project.image} alt={project.name} />
+                    ) : (
+                      <div className="py-4 flex justify-center">
+                        <PhoneMockup src={project.image} alt={project.name} />
+                      </div>
+                    )}
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
+                  <div className="p-5 flex flex-col gap-3 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-semibold text-gray-900 leading-snug">
+                        {project.name}
+                      </h3>
                       <span
-                        key={tech}
-                        className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded"
+                        className={`shrink-0 px-2 py-0.5 text-xs rounded-full font-medium ${badge.className}`}
                       >
-                        {tech}
+                        {badge.label}
                       </span>
-                    ))}
-                  </div>
-                  {project.link && (
-                    <div className="mt-auto pt-1">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
-                      >
-                        {project.status === "github"
-                          ? "View on GitHub"
-                          : "Open App"}
-                        <ExternalLinkIcon />
-                      </a>
                     </div>
-                  )}
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    {project.link && (
+                      <div className="mt-auto pt-1">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                        >
+                          {project.status === "github"
+                            ? "View on GitHub"
+                            : "Open App"}
+                          <ExternalLinkIcon />
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </AnimateIn>
             );
           })}
         </div>

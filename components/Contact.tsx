@@ -1,3 +1,5 @@
+import AnimateIn from "./AnimateIn";
+
 function EmailIcon() {
   return (
     <svg
@@ -67,31 +69,34 @@ export default function Contact() {
       className="py-20 px-4 sm:px-6 bg-white border-t border-gray-200"
     >
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Get in Touch</h2>
-        <p className="text-gray-500 mb-12">
-          Available for freelance projects and full-time remote roles.
-        </p>
+        <AnimateIn>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">Get in Touch</h2>
+          <p className="text-gray-500 mb-12">
+            Available for freelance projects and full-time remote roles.
+          </p>
+        </AnimateIn>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {contacts.map((c) => (
-            <a
-              key={c.label}
-              href={c.href}
-              target={c.external ? "_blank" : undefined}
-              rel={c.external ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 transition-colors group"
-            >
-              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0">
-                {c.icon}
-              </span>
-              <div className="min-w-0">
-                <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">
-                  {c.label}
+          {contacts.map((c, i) => (
+            <AnimateIn key={c.label} delay={i * 80}>
+              <a
+                href={c.href}
+                target={c.external ? "_blank" : undefined}
+                rel={c.external ? "noopener noreferrer" : undefined}
+                className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-[transform,colors,background,border-color] duration-200 group"
+              >
+                <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0">
+                  {c.icon}
+                </span>
+                <div className="min-w-0">
+                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">
+                    {c.label}
+                  </div>
+                  <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">
+                    {c.value}
+                  </div>
                 </div>
-                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">
-                  {c.value}
-                </div>
-              </div>
-            </a>
+              </a>
+            </AnimateIn>
           ))}
         </div>
       </div>

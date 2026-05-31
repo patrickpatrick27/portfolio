@@ -1,3 +1,6 @@
+import Image from "next/image";
+import AnimateIn from "./AnimateIn";
+
 const stack = [
   "Python",
   "Dart / Flutter",
@@ -24,11 +27,19 @@ export default function About() {
       className="py-20 px-4 sm:px-6 bg-[#F9FAFB] border-t border-gray-200"
     >
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">About</h2>
-        <div className="flex flex-col sm:flex-row gap-10">
+        <AnimateIn>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">About</h2>
+        </AnimateIn>
+        <AnimateIn delay={80} className="flex flex-col sm:flex-row gap-10">
           <div className="shrink-0">
-            <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
-              <span className="text-xl font-semibold text-gray-500">DB</span>
+            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-gray-200">
+              <Image
+                src="/avatar.jpg"
+                alt="Dave Patrick Bulaso"
+                width={96}
+                height={96}
+                className="object-cover object-top w-full h-full"
+              />
             </div>
           </div>
           <div className="flex-1 space-y-4">
@@ -63,7 +74,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );

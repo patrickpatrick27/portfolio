@@ -2,15 +2,24 @@ export default function Hero() {
   return (
     <section className="py-24 px-4 sm:px-6 text-center bg-white">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+        <h1
+          className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6 animate-fade-in-up"
+          style={{ animationDelay: "0ms" }}
+        >
           I build production systems for international clients.
         </h1>
-        <p className="text-lg sm:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p
+          className="text-lg sm:text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: "120ms" }}
+        >
           Full-stack developer and automation engineer based in the Philippines.
           I ship real products — dashboards, mobile apps, automation pipelines —
           used daily by companies in the UK, US, and locally.
         </p>
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div
+          className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in-up"
+          style={{ animationDelay: "240ms" }}
+        >
           <a
             href="#projects"
             className="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
@@ -45,7 +54,10 @@ export default function Hero() {
             </svg>
           </a>
         </div>
-        <div className="flex flex-wrap justify-center gap-3">
+        <div
+          className="flex flex-wrap justify-center gap-3 animate-fade-in-up"
+          style={{ animationDelay: "360ms" }}
+        >
           {[
             "8 systems in production",
             "3 international clients",
