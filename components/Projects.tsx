@@ -97,6 +97,16 @@ const projects: Project[] = [
     image: "/projects/image14.png",
     mockup: "browser",
   },
+  {
+    name: "Mountaintop Telecom Installation Form",
+    description:
+      "Customer-facing internet subscription portal for a Philippine telecoms provider. Lets subscribers browse plans from 50 to 500 Mbps and submit installation requests online.",
+    stack: ["React", "Firebase Hosting"],
+    status: "live",
+    image: "/projects/image8.png",
+    mockup: "browser",
+    link: "https://telecom-installation-form.web.app",
+  },
 ];
 
 const statusConfig: Record<Status, { label: string; className: string }> = {
