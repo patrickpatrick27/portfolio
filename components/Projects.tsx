@@ -137,7 +137,7 @@ export default function Projects() {
         <p className="text-gray-500 mb-12">
           Production systems in active daily use.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => {
             const badge = statusConfig[project.status];
             return (
