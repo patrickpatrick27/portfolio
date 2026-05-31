@@ -38,7 +38,7 @@ export default function About() {
                 alt="Dave Patrick Bulaso"
                 width={96}
                 height={96}
-                className="object-cover object-top w-full h-full"
+                className="object-cover w-full h-full" style={{ objectPosition: "center 30%" }}
               />
             </div>
           </div>
