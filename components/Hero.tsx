@@ -1,3 +1,5 @@
+import CountUp from "./CountUp";
+
 export default function Hero() {
   return (
     <section className="relative py-24 px-4 sm:px-6 text-center bg-gradient-to-b from-blue-50 via-blue-50/30 to-white overflow-hidden">
@@ -67,17 +69,20 @@ export default function Hero() {
           style={{ animationDelay: "480ms" }}
         >
           {[
-            "9 total projects",
-            "3 international clients",
-            "UK · US · Philippines",
-          ].map((chip) => (
+            { label: "total projects", count: 9 },
+            { label: "international clients", count: 3 },
+          ].map((chip, i) => (
             <span
-              key={chip}
-              className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full border border-blue-100"
+              key={chip.label}
+              className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full border border-blue-100 tabular-nums"
             >
-              {chip}
+              <CountUp end={chip.count} delay={560 + i * 120} />
+              {" "}{chip.label}
             </span>
           ))}
+          <span className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full border border-blue-100">
+            UK · US · Philippines
+          </span>
         </div>
         <p
           className="text-sm text-gray-400 animate-fade-in-up"
