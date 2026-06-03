@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --card-border: #E5E7EB;
+}
+
+.dark {
+  --card-border: #374151;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -9,4 +17,9 @@ html {
 body {
   background: #ffffff;
   color: #111827;
+}
+
+.dark body {
+  background: #030712;
+  color: #f9fafb;
 }

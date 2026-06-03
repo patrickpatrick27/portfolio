@@ -71,12 +71,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 bg-white border-t border-gray-200">
+    <section id="contact" className="py-20 px-4 sm:px-6 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Get in Touch</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-3">Get in Touch</h2>
           <div className="w-10 h-1 bg-blue-600 rounded-full mb-4" />
-          <p className="text-gray-500 mb-12">
+          <p className="text-gray-500 dark:text-gray-400 mb-12">
             Available for freelance projects and full-time remote roles.
           </p>
         </AnimateIn>
@@ -88,7 +88,7 @@ export default function Contact() {
               href="mailto:davepatrickbulaso@gmail.com"
               onClick={handleEmailClick}
               className={`flex items-center gap-3 p-4 border rounded-xl hover:-translate-y-0.5 transition-all duration-200 group ${
-                copied ? "bg-green-50 border-green-200" : "bg-[#F9FAFB] border-[#E5E7EB] hover:border-blue-200 hover:bg-blue-50"
+                copied ? "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900" : "bg-[#F9FAFB] dark:bg-gray-900 border-[#E5E7EB] dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/30"
               }`}
             >
               <span className={`shrink-0 transition-colors ${copied ? "text-green-600" : "text-gray-500 group-hover:text-blue-600"}`}>
@@ -104,21 +104,21 @@ export default function Contact() {
           </AnimateIn>
           <AnimateIn delay={80}>
             <a href="https://github.com/patrickpatrick27" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group">
-              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0"><GitHubIcon /></span>
+              className="flex items-center gap-3 p-4 bg-[#F9FAFB] dark:bg-gray-900 border border-[#E5E7EB] dark:border-gray-700 rounded-xl hover:border-blue-200 dark:hover:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:-translate-y-0.5 transition-all duration-200 group">
+              <span className="text-gray-500 dark:text-gray-400 group-hover:text-blue-600 transition-colors shrink-0"><GitHubIcon /></span>
               <div className="min-w-0">
-                <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">GitHub</div>
-                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">github.com/patrickpatrick27</div>
+                <div className="text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wide">GitHub</div>
+                <div className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-blue-700 transition-colors font-medium truncate">github.com/patrickpatrick27</div>
               </div>
             </a>
           </AnimateIn>
           <AnimateIn delay={160}>
             <a href="https://linkedin.com/in/dave-patrick-bulaso-169b7b307" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl hover:border-blue-200 hover:bg-blue-50 hover:-translate-y-0.5 transition-all duration-200 group">
-              <span className="text-gray-500 group-hover:text-blue-600 transition-colors shrink-0"><LinkedInIcon /></span>
+              className="flex items-center gap-3 p-4 bg-[#F9FAFB] dark:bg-gray-900 border border-[#E5E7EB] dark:border-gray-700 rounded-xl hover:border-blue-200 dark:hover:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:-translate-y-0.5 transition-all duration-200 group">
+              <span className="text-gray-500 dark:text-gray-400 group-hover:text-blue-600 transition-colors shrink-0"><LinkedInIcon /></span>
               <div className="min-w-0">
-                <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">LinkedIn</div>
-                <div className="text-sm text-gray-700 group-hover:text-blue-700 transition-colors font-medium truncate">linkedin.com/in/dave-patrick-bulaso</div>
+                <div className="text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wide">LinkedIn</div>
+                <div className="text-sm text-gray-700 dark:text-gray-300 group-hover:text-blue-700 transition-colors font-medium truncate">linkedin.com/in/dave-patrick-bulaso</div>
               </div>
             </a>
           </AnimateIn>
@@ -126,15 +126,15 @@ export default function Contact() {
 
         {/* Contact form */}
         <AnimateIn delay={200}>
-          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-6 sm:p-8" style={{ borderTop: "2px solid #2563EB" }}>
-            <h3 className="font-semibold text-gray-900 mb-6">Send a message</h3>
+          <div className="bg-[#F9FAFB] dark:bg-gray-900 rounded-xl p-6 sm:p-8" style={{ border: "1px solid var(--card-border)", borderTop: "2px solid #2563EB" }}>
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-6">Send a message</h3>
             {formState === "success" ? (
               <div className="flex flex-col items-center justify-center py-10 gap-3 text-center">
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
                   <CheckIcon />
                 </div>
-                <p className="font-semibold text-gray-900">Message sent!</p>
-                <p className="text-sm text-gray-500">I&apos;ll get back to you as soon as possible.</p>
+                <p className="font-semibold text-gray-900 dark:text-gray-100">Message sent!</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">I&apos;ll get back to you as soon as possible.</p>
                 <button onClick={() => setFormState("idle")} className="mt-2 text-sm text-blue-600 hover:text-blue-700 font-medium">
                   Send another
                 </button>
@@ -153,44 +153,44 @@ export default function Contact() {
                 />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Name</label>
+                    <label className="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">Name</label>
                     <input
                       type="text"
                       required
                       value={form.name}
                       onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                       placeholder="Your name"
-                      className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="px-3 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Email</label>
+                    <label className="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">Email</label>
                     <input
                       type="email"
                       required
                       value={form.email}
                       onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                       placeholder="your@email.com"
-                      className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="px-3 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-medium text-gray-600 uppercase tracking-wide">Message</label>
+                  <label className="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">Message</label>
                   <textarea
                     required
                     rows={4}
                     value={form.message}
                     onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                     placeholder="Tell me about your project..."
-                    className="px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                    className="px-3 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                   />
                 </div>
                 {formState === "error" && (
                   <p className="text-sm text-red-600">{errorMsg}</p>
                 )}
                 <div className="flex items-center justify-between gap-4">
-                  <p className="text-xs text-gray-400">I typically respond within a few minutes.</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500">I typically respond within a few minutes.</p>
                   <button
                     type="submit"
                     disabled={formState === "submitting"}

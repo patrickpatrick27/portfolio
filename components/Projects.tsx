@@ -150,12 +150,12 @@ export default function Projects() {
   const hidden = projects.length - INITIAL_VISIBLE;
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 bg-white border-t border-gray-100">
+    <section id="projects" className="py-20 px-4 sm:px-6 bg-white dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto">
         <AnimateIn>
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Projects</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-3">Projects</h2>
           <div className="w-10 h-1 bg-blue-600 rounded-full mb-4" />
-          <p className="text-gray-500 mb-12">
+          <p className="text-gray-500 dark:text-gray-400 mb-12">
             Production systems in active daily use.
           </p>
         </AnimateIn>
@@ -171,13 +171,13 @@ export default function Projects() {
                 className={`flex flex-col ${featured ? "md:col-span-2" : ""}`}
               >
                 <div
-                  className={`bg-[#F9FAFB] rounded-xl overflow-hidden flex flex-1 hover:-translate-y-1 hover:shadow-lg transition-[transform,box-shadow] duration-200 ${
+                  className={`bg-[#F9FAFB] dark:bg-gray-900 rounded-xl overflow-hidden flex flex-1 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-gray-900 transition-[transform,box-shadow] duration-200 ${
                     featured ? "flex-col md:flex-row" : "flex-col"
                   }`}
-                  style={{ border: "1px solid #E5E7EB", borderTop: "2px solid #2563EB" }}
+                  style={{ border: "1px solid var(--card-border)", borderTop: "2px solid #2563EB" }}
                 >
                   {/* Screenshot */}
-                  <div className={`bg-white p-4 border-b border-gray-100 ${featured ? "md:w-3/5 md:border-b-0 md:border-r" : ""}`}>
+                  <div className={`bg-white dark:bg-gray-950 p-4 border-b border-gray-100 dark:border-gray-800 ${featured ? "md:w-3/5 md:border-b-0 md:border-r" : ""}`}>
                     {project.mockup === "browser" ? (
                       <BrowserMockup src={project.image} alt={project.name} confidential={project.status === "confidential"} priority={featured} />
                     ) : (
@@ -190,24 +190,24 @@ export default function Projects() {
                   {/* Info */}
                   <div className={`flex flex-col gap-3 flex-1 ${featured ? "p-6 md:p-8 justify-center" : "p-5"}`}>
                     {featured && (
-                      <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">
+                      <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
                         Featured Project
                       </span>
                     )}
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className={`font-semibold text-gray-900 leading-snug ${featured ? "text-xl" : ""}`}>
+                      <h3 className={`font-semibold text-gray-900 dark:text-gray-100 leading-snug ${featured ? "text-xl" : ""}`}>
                         {project.name}
                       </h3>
                       <span className={`shrink-0 px-2 py-0.5 text-xs rounded-full font-medium ${badge.className}`}>
                         {badge.label}
                       </span>
                     </div>
-                    <p className={`text-gray-600 leading-relaxed ${featured ? "text-base" : "text-sm"}`}>
+                    <p className={`text-gray-600 dark:text-gray-400 leading-relaxed ${featured ? "text-base" : "text-sm"}`}>
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.stack.map((tech) => (
-                        <span key={tech} className="px-2 py-0.5 bg-gray-200 text-gray-600 text-xs rounded">
+                        <span key={tech} className="px-2 py-0.5 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded">
                           {tech}
                         </span>
                       ))}
@@ -236,7 +236,7 @@ export default function Projects() {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 text-gray-600 rounded-lg font-medium hover:border-blue-300 hover:text-blue-600 transition-colors text-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 rounded-lg font-medium hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm"
             >
               Show {hidden} more projects
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
