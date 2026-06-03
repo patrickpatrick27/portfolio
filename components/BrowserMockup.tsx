@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 type Props = {
   src: string;
@@ -8,6 +10,8 @@ type Props = {
 };
 
 export default function BrowserMockup({ src, alt, confidential, priority }: Props) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div className="rounded-lg border border-gray-200 dark:border-gray-700 shadow-md overflow-hidden">
       <div className="bg-gray-100 dark:bg-gray-800 px-3 py-2 flex items-center gap-1.5 border-b border-gray-200 dark:border-gray-700">
@@ -15,16 +19,20 @@ export default function BrowserMockup({ src, alt, confidential, priority }: Prop
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
       </div>
-      <div className="relative aspect-video bg-gray-50 dark:bg-gray-900 overflow-hidden">
+      <div className="relative aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        {!loaded && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" />
+        )}
         <Image
           src={src}
           alt={alt}
           fill
-          className={`object-cover object-top transition-all ${confidential ? "scale-105 blur-sm" : ""}`}
+          className={`object-cover object-top transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"} ${confidential ? "scale-105 blur-sm" : ""}`}
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={priority}
+          onLoad={() => setLoaded(true)}
         />
-        {confidential && (
+        {confidential && loaded && (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 shadow-sm">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -67,11 +67,18 @@ export default function Nav() {
         </div>
       </div>
 
-      <div className={`sm:hidden overflow-hidden transition-all duration-200 ease-in-out bg-white dark:bg-gray-950 ${open ? "max-h-64 border-t border-gray-100 dark:border-gray-800" : "max-h-0"}`}>
+      {/* Mobile dropdown - absolute, slides down from nav */}
+      <div
+        className={`sm:hidden absolute top-full left-0 right-0 z-40 transition-all duration-200 ease-out origin-top
+          bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 shadow-lg
+          ${open ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"}`}
+      >
         {links.map((link) => (
           <a key={link.href} href={link.href} onClick={() => setOpen(false)}
-            className={`block px-6 py-3 text-sm font-medium border-b border-gray-50 dark:border-gray-800 last:border-0 transition-colors ${
-              active === link.href ? "text-blue-600 bg-blue-50 dark:bg-blue-950/30" : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
+            className={`flex items-center px-6 py-3.5 text-sm font-medium border-b border-gray-50 dark:border-gray-900 last:border-0 transition-colors ${
+              active === link.href
+                ? "text-blue-600 bg-blue-50/50 dark:bg-blue-950/20"
+                : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
             }`}
           >
             {link.label}

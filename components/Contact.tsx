@@ -141,7 +141,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                {/* Honeypot — hidden from humans, bots fill it in */}
+                {/* Honeypot: hidden from humans, bots fill it in */}
                 <input
                   type="text"
                   name="website"

@@ -52,7 +52,7 @@ export default function About() {
           <div className="flex-1 space-y-4">
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               I&apos;m a 21-year-old Computer Engineering student at Cavite State University
-              (graduating February 2027, GPA 1.58/1.00 — Philippine scale where 1.0 is highest),
+              (graduating February 2027, GPA 1.58/1.00, Philippine scale where 1.0 is highest),
               currently building production software for three international clients simultaneously
               while still in school.
             </p>
