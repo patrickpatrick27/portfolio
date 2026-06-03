@@ -179,7 +179,7 @@ export default function Projects() {
                   {/* Screenshot */}
                   <div className={`bg-white p-4 border-b border-gray-100 ${featured ? "md:w-3/5 md:border-b-0 md:border-r" : ""}`}>
                     {project.mockup === "browser" ? (
-                      <BrowserMockup src={project.image} alt={project.name} confidential={project.status === "confidential"} />
+                      <BrowserMockup src={project.image} alt={project.name} confidential={project.status === "confidential"} priority={featured} />
                     ) : (
                       <div className="py-4 flex justify-center">
                         <PhoneMockup src={project.image} alt={project.name} />

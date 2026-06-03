@@ -4,9 +4,10 @@ type Props = {
   src: string;
   alt: string;
   confidential?: boolean;
+  priority?: boolean;
 };
 
-export default function BrowserMockup({ src, alt, confidential }: Props) {
+export default function BrowserMockup({ src, alt, confidential, priority }: Props) {
   return (
     <div className="rounded-lg border border-gray-200 shadow-md overflow-hidden">
       <div className="bg-gray-100 px-3 py-2 flex items-center gap-1.5 border-b border-gray-200">
@@ -21,6 +22,7 @@ export default function BrowserMockup({ src, alt, confidential }: Props) {
           fill
           className={`object-cover object-top transition-all ${confidential ? "scale-105 blur-sm" : ""}`}
           sizes="(max-width: 768px) 100vw, 50vw"
+          priority={priority}
         />
         {confidential && (
           <div className="absolute inset-0 flex items-center justify-center">

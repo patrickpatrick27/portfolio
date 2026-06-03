@@ -40,7 +40,7 @@ export default function About() {
           <div className="w-10 h-1 bg-blue-600 rounded-full mb-12" />
         </AnimateIn>
         <AnimateIn delay={80} className="flex flex-col sm:flex-row gap-10">
-          <div className="shrink-0">
+          <div className="shrink-0 mx-auto sm:mx-0">
             <div className="w-32 h-32 rounded-full overflow-hidden ring-2 ring-gray-200">
               <Image
                 src="/avatar.jpg"
